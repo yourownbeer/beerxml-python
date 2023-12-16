@@ -4,23 +4,6 @@ from typing import Optional
 from pydantic import BaseModel, Field
 
 
-class MiscType(str, Enum):
-    spice = "Spice"
-    finning = "Finning"
-    water_agent = "Water Agent"
-    herb = "herb"
-    flavor = "flavor"
-    other = "other"
-
-
-class MiscUse(str, Enum):
-    boil = "boil"
-    mash = "mash"
-    primary = "primary"
-    secondary = "secondary"
-    bottling = "bottling"
-
-
 class Water(BaseModel):
     name: str = Field(alias="NAME")
     version: str = Field(alias="VERSION", ge=1, le=1)

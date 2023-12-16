@@ -1,6 +1,6 @@
 import os.path
 
-from beerxml.beerxml_handler import BeerxmlParser
+from beerxml.beerxml_parser import BeerxmlParser
 
 
 def test_parse_to_beerxml() -> None:
