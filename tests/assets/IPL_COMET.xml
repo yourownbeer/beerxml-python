@@ -1,0 +1,160 @@
+        <RECIPES>
+  <RECIPE>
+    <VERSION>1</VERSION>
+    <NAME>IPL Comet</NAME>
+    <TYPE>All Grain</TYPE>
+    <BREWER>lowmann15</BREWER>
+    <BATCH_SIZE>25</BATCH_SIZE>
+    <BOIL_SIZE>28</BOIL_SIZE>
+    <BOIL_TIME>60</BOIL_TIME>
+    <EFFICIENCY>60</EFFICIENCY>
+    <DATE>8.10.2022</DATE>
+    <OG>1.063</OG>
+    <FG>1.015</FG>
+    <CARBONATION>5</CARBONATION>
+    <NOTES>Kopie des Rezepts "IPL" von lowmann15
+
+</NOTES>
+    <DISPLAY_PRIMARY_TEMP>12°C</DISPLAY_PRIMARY_TEMP>
+    <IBU>51.7</IBU>
+    <IBU_METHOD>Tinseth</IBU_METHOD>
+    <EST_COLOR>13 EBC</EST_COLOR>
+    <EST_ABV>6.6 %vol</EST_ABV>
+    <WATERS></WATERS>
+    <FERMENTABLES>
+          <FERMENTABLE>
+        <VERSION>1</VERSION>
+        <NAME>Pilsner Malz</NAME>
+        <AMOUNT>5</AMOUNT>
+        <COLOR>2</COLOR>
+        <YIELD>80.1</YIELD>
+        <TYPE>Grain</TYPE>
+      </FERMENTABLE>
+          <FERMENTABLE>
+        <VERSION>1</VERSION>
+        <NAME>Münchner Malz Typ I</NAME>
+        <AMOUNT>2</AMOUNT>
+        <COLOR>6.1</COLOR>
+        <YIELD>75.7</YIELD>
+        <TYPE>Grain</TYPE>
+      </FERMENTABLE>
+        </FERMENTABLES>
+    <MISCS>
+        </MISCS>
+    <HOPS>
+          <HOP>
+        <VERSION>1</VERSION>
+        <NAME>Polaris</NAME>
+        <AMOUNT>0.0217</AMOUNT>
+        <ALPHA>21</ALPHA>
+        <USE>Boil</USE>
+        <TIME>60</TIME>
+        <FORM>Pellet</FORM>
+      </HOP>
+          <HOP>
+        <VERSION>1</VERSION>
+        <NAME>Hallertauer Comet</NAME>
+        <AMOUNT>1</AMOUNT>
+        <ALPHA>9.5</ALPHA>
+        <USE>Boil</USE>
+        <TIME>30</TIME>
+        <FORM>Pellet</FORM>
+      </HOP>
+          <HOP>
+        <VERSION>1</VERSION>
+        <NAME>Hallertauer Comet</NAME>
+        <AMOUNT>0.06</AMOUNT>
+        <ALPHA>9.5</ALPHA>
+        <USE>Whirlpool</USE>
+        <TIME></TIME>
+        <FORM>Pellet</FORM>
+      </HOP>
+          <HOP>
+        <VERSION>1</VERSION>
+        <NAME>Hallertauer Comet</NAME>
+        <AMOUNT>1</AMOUNT>
+        <ALPHA>9.5</ALPHA>
+        <USE>Dry Hop</USE>
+        <TIME>7200</TIME>
+        <FORM>Pellet</FORM>
+      </HOP>
+          <HOP>
+        <VERSION>1</VERSION>
+        <NAME>Hallertauer Comet</NAME>
+        <AMOUNT>0.04</AMOUNT>
+        <ALPHA>9.5</ALPHA>
+        <USE>Dry Hop</USE>
+        <TIME>14400</TIME>
+        <FORM>Pellet</FORM>
+      </HOP>
+        </HOPS>
+    <MASH>
+      <VERSION>1</VERSION>
+      <NAME>Mash</NAME>
+      <GRAIN_TEMP>20</GRAIN_TEMP>
+      <TUN_TEMP>67</TUN_TEMP>
+      <MASH_STEPS>
+            <MASH_STEP>
+          <VERSION>1</VERSION>
+                          <NAME>Einmaischen</NAME>
+            <WATER_GRAIN_RATIO>1:2.57</WATER_GRAIN_RATIO>
+                          <TYPE>Infusion</TYPE>
+          <STEP_TEMP>67</STEP_TEMP>
+          <END_TEMP>67</END_TEMP>
+          <STEP_TIME>50</STEP_TIME>
+                          <INFUSE_AMOUNT>18</INFUSE_AMOUNT>
+            <INFUSE_TEMP>73</INFUSE_TEMP>
+                        </MASH_STEP>
+            <MASH_STEP>
+          <VERSION>1</VERSION>
+                          <NAME>Rast 1</NAME>
+                          <TYPE>Temperature</TYPE>
+          <STEP_TEMP>78</STEP_TEMP>
+          <END_TEMP>78</END_TEMP>
+          <STEP_TIME>5</STEP_TIME>
+                      </MASH_STEP>
+          </MASH_STEPS>
+    </MASH>
+    <YEASTS>
+          <YEAST>
+        <VERSION>1</VERSION>
+        <NAME>Fermentis Saflager W-34/70</NAME>
+        <AMOUNT>0.012</AMOUNT>
+        <AMOUNT_IS_WEIGHT>TRUE</AMOUNT_IS_WEIGHT>
+        <ATTENUATION>76</ATTENUATION>
+        <MIN_TEMPERATURE>12</MIN_TEMPERATURE>
+        <MAX_TEMPERATURE>12</MAX_TEMPERATURE>
+        <FORM>Dry</FORM>
+        <TYPE>Lager</TYPE>
+      </YEAST>
+        </YEASTS>
+    <STYLE>
+      <VERSION>1</VERSION>
+      <NAME>Amerikanisches IPA</NAME>
+      <CATEGORY>India Pale Ale (IPA)</CATEGORY>
+      <CATEGORY_NUMBER>14</CATEGORY_NUMBER>
+      <STYLE_LETTER>B</STYLE_LETTER>
+      <STYLE_GUIDE>BJCP</STYLE_GUIDE>
+      <TYPE>ale</TYPE>
+      <OG_MIN>1.056</OG_MIN>
+      <OG_MAX>1.075</OG_MAX>
+      <FG_MIN>1.01</FG_MIN>
+      <FG_MAX>1.018</FG_MAX>
+      <IBU_MIN>40</IBU_MIN>
+      <IBU_MAX>70</IBU_MAX>
+      <COLOR_MIN>2.7</COLOR_MIN>
+      <COLOR_MAX>6.1</COLOR_MAX>
+      <NOTES>Ein entschieden hopfiges und bitteres, mäßig starkes helles amerikanisches Ale.
+Geschichte: Eine amerikanische Version des historischen englischen Typs, gebraut mit amerikanischen Zutaten und amerikanischer Haltung.
+Vergleich mit anderen Stilen: </NOTES>
+      <PROFILE>Aroma: Ein deutliches bis intensives Hopfenaroma mit zitrus- oder parfumartigen, blumigen, fruchtigen, harzigen und/oder Noten von Kiefernnadeln von amerikanischen Hopfen. Viele Sorten sind hopfengestopft und können zusätzlich ein grasiges Aroma haben, wobei das nicht gefordert ist. Etwas klare Malzsüße kann im Hintergrund spürbar sein, sollte aber geringer als in der englischen Version sein. Fruchtigkeit, entweder von Estern oder Hopfen, kann man ebenso bei einigen Sorten finden, aber eine neutrale Vergärung ist ebenso akzeptabel. Etwas Alkohol kann spürbar sein.
+Aussehen: Die Farbe recht von mittlerem Gold bis zu mittlerem rötlichen Kupfer; einige Versionen können auch einen orangen Farbton haben. Sollte klar sein, wobei unfiltrierte, tockengehopfte Versionen etwas trüb sein können. Haltbare weiße bis weißliche Schaumkrone.
+Geschmack: Der Hopfengeschmack ist mittel bis stark und sollte amerikanischen Charakter mit zitrusartigen, blumigen, fruchtigen, harzigen und/oder Noten von Kiefernnadeln zeigen. Hohe bis sehr hohe Hopfenbittere, wobei der Malzkörper denm starken Hopfencharakter unterstützt und für gute Ausgewogenheit sorgt. Der Malzgeschmack sollte gering bis mäßig sein; eine generell reine malzige Süße, wobei leichte Karamell- oder Toastnoten akzeptabel sind. Kein Diacethyl. Geringe Fruchtigkeit ist akzeptabel aber nicht nötig. Die Bittere kann bis in den Nachgeschmack nachhängen, sollte aber nicht kratzig sein. Mitteltrockener bis trockener Abgang. Etwas reiner Alkoholgeschmack kann bei stärkeren Sorten spürbar sein. Eiche ist bei diesem Typ nicht passend. Kann etwas schweflig sein, aber die meisten Sorten zeigen diese Eigenschaft nicht.
+Mundgefühl: Weicher, mittelleichter bis mittlerer Körper ohne Astringenz von Hopfen, wobei die mäßige bis mäßig hohe Karbonisierung trotz der vorhandenen Malzsüße einen insgesamt trockenen Eindruck erzeugen kann. Etwas weiche Alkoholwärme kann und sollte in stärkeren (aber nicht in allen) Versionen spürbar sein. Der Körper ist generell leichter als in englischen Versionen.
+Kommentare: </PROFILE>
+      <INGEDIENTS>Pale Ale Malz (gut gelöst und geeignet für eine einstufige Infusion); amerikanische Hopfen; amerikanische Hefe, die ein reintöniges oder leicht fruchtiges Profil erzeugt. Generell nur mit Malz, aber bei geringeren Temperaturen gemaischt, um einen hohen Endvergärungsgrad zu erreichen. Das Wasser kann weich bis leicht sulfathaltig sein. Sorten mit merklichen Roggenanteil ("RyePA") sollten in der Spezialbierkategorie eingereicht werden.</INGEDIENTS>
+      <EXAMPLES>Bell's Two-Hearted Ale, AleSmith IPA, Russian River Blind Pig IPA, Stone IPA, Three Floyds Alpha King, Great Divide Titan IPA, Bear Republic Racer 5 IPA, Victory Hop Devil, Sierra Nevada Celebration Ale, Anderson Valley Hop Ottin',  Dogfish Head 60 Minute IPA, Founder's Centennial IPA, Anchor Liberty Ale, Harpoon IPA, Avery IPA</EXAMPLES>
+      </STYLE>
+    </RECIPE>
+  </RECIPES>
+    

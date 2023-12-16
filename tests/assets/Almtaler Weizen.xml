@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RECIPES>
+  <RECIPE>
+    <VERSION>1</VERSION>
+    <NAME>*Almtaler Weizen</NAME>
+    <TYPE>All Grain</TYPE>
+    <BREWER>kleiner-brauhelfer-2</BREWER>
+    <BATCH_SIZE>34.0</BATCH_SIZE>
+    <BOIL_SIZE>37.4</BOIL_SIZE>
+    <BOIL_TIME>70</BOIL_TIME>
+    <EFFICIENCY>55.0</EFFICIENCY>
+    <STYLE>
+      <VERSION>1</VERSION>
+      <NAME>Unknown</NAME>
+      <CATEGORY>Unknown</CATEGORY>
+      <CATEGORY_NUMBER>0</CATEGORY_NUMBER>
+      <STYLE_LETTER></STYLE_LETTER>
+      <STYLE_GUIDE></STYLE_GUIDE>
+      <TYPE></TYPE>
+      <OG_MIN>1.0560</OG_MIN>
+      <OG_MAX>1.0560</OG_MAX>
+      <FG_MIN>0.8448</FG_MIN>
+      <FG_MAX>0.8448</FG_MAX>
+      <IBU_MIN>12</IBU_MIN>
+      <IBU_MAX>12</IBU_MAX>
+      <COLOR_MIN>5</COLOR_MIN>
+      <COLOR_MAX>5</COLOR_MAX>
+      <CARB_MIN>7.0</CARB_MIN>
+      <CARB_MAX>7.0</CARB_MAX>
+    </STYLE>
+    <HOPS>
+      <HOP>
+        <VERSION>1</VERSION>
+        <NAME>Tettnanger</NAME>
+        <ALPHA>3.9</ALPHA>
+        <AMOUNT>0.0205</AMOUNT>
+        <USE>First Wort</USE>
+        <TIME>70</TIME>
+        <TYPE>Aroma</TYPE>
+        <FORM>Pellet</FORM>
+      </HOP>
+      <HOP>
+        <VERSION>1</VERSION>
+        <NAME>Tettnanger</NAME>
+        <ALPHA>3.9</ALPHA>
+        <AMOUNT>0.0205</AMOUNT>
+        <USE>Boil</USE>
+        <TIME>70</TIME>
+        <TYPE>Aroma</TYPE>
+        <FORM>Pellet</FORM>
+      </HOP>
+    </HOPS>
+    <FERMENTABLES>
+      <FERMENTABLE>
+        <VERSION>1</VERSION>
+        <NAME>Weizenmalz hell</NAME>
+        <TYPE>Grain</TYPE>
+        <AMOUNT>4.50</AMOUNT>
+        <YIELD>77</YIELD>
+        <COLOR>2.06113</COLOR>
+      </FERMENTABLE>
+      <FERMENTABLE>
+        <VERSION>1</VERSION>
+        <NAME>Pilsner Malz</NAME>
+        <TYPE>Grain</TYPE>
+        <AMOUNT>3.60</AMOUNT>
+        <YIELD>77</YIELD>
+        <COLOR>2.06113</COLOR>
+      </FERMENTABLE>
+      <FERMENTABLE>
+        <VERSION>1</VERSION>
+        <NAME>Münchner Malz Typ II</NAME>
+        <TYPE>Grain</TYPE>
+        <AMOUNT>0.90</AMOUNT>
+        <YIELD>77</YIELD>
+        <COLOR>9.18648</COLOR>
+      </FERMENTABLE>
+    </FERMENTABLES>
+    <YEASTS>
+      <YEAST>
+        <VERSION>1</VERSION>
+        <NAME>WYEAST 3068 Weihenstephan Weizen</NAME>
+        <TYPE>Lager</TYPE>
+        <FORM>Liquid</FORM>
+        <AMOUNT>0</AMOUNT>
+      </YEAST>
+    </YEASTS>
+    <MISCS/>
+    <WATERS>
+      <VERSION>1</VERSION>
+      <NAME>Friedrichshafen</NAME>
+      <AMOUNT>46.0</AMOUNT>
+      <CALCIUM>0.0</CALCIUM>
+      <BICARBONATE>0.0</BICARBONATE>
+      <SULFATE>0.0</SULFATE>
+      <CHLORIDE>0.0</CHLORIDE>
+      <SODIUM>0.0</SODIUM>
+      <MAGNESIUM>0.0</MAGNESIUM>
+    </WATERS>
+    <MASH>
+      <VERSION>1</VERSION>
+      <NAME>Temperatur</NAME>
+      <GRAIN_TEMP>18</GRAIN_TEMP>
+      <MASH_STEPS>
+        <MASH_STEP>
+          <VERSION>1</VERSION>
+          <NAME>Einmaischen</NAME>
+          <TYPE>Infusion</TYPE>
+          <STEP_TEMP>45</STEP_TEMP>
+          <STEP_TIME>10</STEP_TIME>
+          <INFUSE_AMOUNT>20.2</INFUSE_AMOUNT>
+        </MASH_STEP>
+        <MASH_STEP>
+          <VERSION>1</VERSION>
+          <NAME>Kochendes Wasser</NAME>
+          <TYPE>Infusion</TYPE>
+          <STEP_TEMP>45</STEP_TEMP>
+          <STEP_TIME>20</STEP_TIME>
+          <INFUSE_AMOUNT>12.7</INFUSE_AMOUNT>
+        </MASH_STEP>
+        <MASH_STEP>
+          <VERSION>1</VERSION>
+          <NAME>Kochendes Wasser</NAME>
+          <TYPE>Infusion</TYPE>
+          <STEP_TEMP>62</STEP_TEMP>
+          <STEP_TIME>30</STEP_TIME>
+          <INFUSE_AMOUNT>20.9</INFUSE_AMOUNT>
+        </MASH_STEP>
+        <MASH_STEP>
+          <VERSION>1</VERSION>
+          <NAME>Kochendes Wasser</NAME>
+          <TYPE>Infusion</TYPE>
+          <STEP_TEMP>72</STEP_TEMP>
+          <STEP_TIME>30</STEP_TIME>
+          <INFUSE_AMOUNT>26.8</INFUSE_AMOUNT>
+        </MASH_STEP>
+      </MASH_STEPS>
+    </MASH>
+  </RECIPE>
+</RECIPES>
