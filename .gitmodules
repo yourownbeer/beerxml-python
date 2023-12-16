@@ -1,0 +1,3 @@
+[submodule "beerxml-json-schema"]
+	path = beerxml-json-schema
+	url = git@yob.github.com:yourownbeer/beerxml-json-schema.git
