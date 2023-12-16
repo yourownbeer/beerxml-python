@@ -20,6 +20,7 @@ mypy = "^1.7.1"
 bandit = "^1.7.6"
 types-xmltodict = "^0.13.0.3"
 datamodel-code-generator = "^0.25.1"
+pytest = "^7.4.3"
 
 [build-system]
 requires = ["poetry-core"]

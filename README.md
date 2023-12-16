@@ -12,6 +12,15 @@ To install your package, use the following command:
 pip install beerxml
 ```
 
+## Code Generation
+
+The models in this beerxml package have been generated from [this beerxml json schema](https://github.com/yourownbeer/beerxml-json-schema) with this command:
+
+```
+ datamodel-codegen  --input .\schemas\Recipe.json --input-file-type jsonschema --output output.py --snake-case-field --capitalise-enum-members --use-annotated  --use-non-positive-negative-numbe
+r-constrained-types --output-model-type pydantic_v2.BaseModel
+```
+
 ## Usage
 
 Import the `BeerxmlParser` class and inject the file content into the class like in the following example:

@@ -3,7 +3,7 @@ from __future__ import annotations
 from enum import Enum
 from typing import List, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, RootModel
 from typing_extensions import Annotated
 
 
@@ -22,12 +22,12 @@ class StyleType(Enum):
     CIDER = 'Cider'
 
 
-class EvapRate(BaseModel):
-    __root__: Annotated[float, Field(ge=0.0, le=100.0, title='Evap Rate')]
+class EvapRate(RootModel[float]):
+    root: Annotated[float, Field(ge=0.0, le=100.0, title='Evap Rate')]
 
 
-class HopUtilization(BaseModel):
-    __root__: Annotated[float, Field(ge=0.0, le=100.0, title='Hop Utilization')]
+class HopUtilization(RootModel[float]):
+    root: Annotated[float, Field(ge=0.0, le=100.0, title='Hop Utilization')]
 
 
 class Equipment(BaseModel):
@@ -70,28 +70,28 @@ class Equipment(BaseModel):
     notes: Annotated[Optional[str], Field(alias='NOTES', title='Notes')]
 
 
-class Beta(BaseModel):
-    __root__: Annotated[float, Field(ge=1.0, le=1.0, title='Beta')]
+class Beta(RootModel[float]):
+    root: Annotated[float, Field(ge=1.0, le=1.0, title='Beta')]
 
 
-class Hsi(BaseModel):
-    __root__: Annotated[float, Field(ge=1.0, le=1.0, title='Hsi')]
+class Hsi(RootModel[float]):
+    root: Annotated[float, Field(ge=1.0, le=1.0, title='Hsi')]
 
 
-class Humulene(BaseModel):
-    __root__: Annotated[float, Field(ge=1.0, le=1.0, title='Humulene')]
+class Humulene(RootModel[float]):
+    root: Annotated[float, Field(ge=1.0, le=1.0, title='Humulene')]
 
 
-class Caryophyllene(BaseModel):
-    __root__: Annotated[float, Field(ge=1.0, le=1.0, title='Caryophyllene')]
+class Caryophyllene(RootModel[float]):
+    root: Annotated[float, Field(ge=1.0, le=1.0, title='Caryophyllene')]
 
 
-class Cohumulone(BaseModel):
-    __root__: Annotated[float, Field(ge=1.0, le=1.0, title='Cohumulone')]
+class Cohumulone(RootModel[float]):
+    root: Annotated[float, Field(ge=1.0, le=1.0, title='Cohumulone')]
 
 
-class Myrcene(BaseModel):
-    __root__: Annotated[float, Field(ge=1.0, le=1.0, title='Myrcene')]
+class Myrcene(RootModel[float]):
+    root: Annotated[float, Field(ge=1.0, le=1.0, title='Myrcene')]
 
 
 class HopUse(Enum):
@@ -114,20 +114,20 @@ class HopForm(Enum):
     LEAF = 'Leaf'
 
 
-class CoarseFineDiff(BaseModel):
-    __root__: Annotated[float, Field(ge=0.0, le=100.0, title='Coarse Fine Diff')]
+class CoarseFineDiff(RootModel[float]):
+    root: Annotated[float, Field(ge=0.0, le=100.0, title='Coarse Fine Diff')]
 
 
-class Moisture(BaseModel):
-    __root__: Annotated[float, Field(ge=0.0, le=100.0, title='Moisture')]
+class Moisture(RootModel[float]):
+    root: Annotated[float, Field(ge=0.0, le=100.0, title='Moisture')]
 
 
-class Protein(BaseModel):
-    __root__: Annotated[float, Field(ge=0.0, le=100.0, title='Protein')]
+class Protein(RootModel[float]):
+    root: Annotated[float, Field(ge=0.0, le=100.0, title='Protein')]
 
 
-class MaxInBatch(BaseModel):
-    __root__: Annotated[float, Field(ge=0.0, le=100.0, title='Max In Batch')]
+class MaxInBatch(RootModel[float]):
+    root: Annotated[float, Field(ge=0.0, le=100.0, title='Max In Batch')]
 
 
 class FermentableType(Enum):
@@ -155,8 +155,8 @@ class MiscUse(Enum):
     BOTTLING = 'bottling'
 
 
-class Attenuation(BaseModel):
-    __root__: Annotated[float, Field(ge=0.0, le=100.0, title='Attenuation')]
+class Attenuation(RootModel[float]):
+    root: Annotated[float, Field(ge=0.0, le=100.0, title='Attenuation')]
 
 
 class YeastType(Enum):
@@ -212,20 +212,20 @@ class Style(BaseModel):
     ibu_max: Annotated[float, Field(alias='IBU_MAX', title='Ibu Max')]
     color_min: Annotated[float, Field(alias='COLOR_MIN', title='Color Min')]
     color_max: Annotated[float, Field(alias='COLOR_MAX', title='Color Max')]
-    carb_min: Annotated[Optional[float], Field(alias='CARB_MIN', title='Carb Min')] = (
-        None
-    )
-    carb_max: Annotated[Optional[float], Field(alias='CARB_MAX', title='Carb Max')] = (
-        None
-    )
-    abv_min: Annotated[Optional[float], Field(alias='ABV_MIN', title='Abv Min')] = None
-    abv_max: Annotated[Optional[float], Field(alias='ABV_MAX', title='Abv Max')] = None
-    notes: Annotated[Optional[str], Field(alias='NOTES', title='Notes')] = None
-    profile: Annotated[Optional[str], Field(alias='PROFILE', title='Profile')] = None
+    carb_min: Annotated[
+        Optional[float], Field(None, alias='CARB_MIN', title='Carb Min')
+    ]
+    carb_max: Annotated[
+        Optional[float], Field(None, alias='CARB_MAX', title='Carb Max')
+    ]
+    abv_min: Annotated[Optional[float], Field(None, alias='ABV_MIN', title='Abv Min')]
+    abv_max: Annotated[Optional[float], Field(None, alias='ABV_MAX', title='Abv Max')]
+    notes: Annotated[Optional[str], Field(None, alias='NOTES', title='Notes')]
+    profile: Annotated[Optional[str], Field(None, alias='PROFILE', title='Profile')]
     ingredients: Annotated[
-        Optional[str], Field(alias='INGREDIENTS', title='Ingredients')
-    ] = None
-    examples: Annotated[Optional[str], Field(alias='EXAMPLES', title='Examples')] = None
+        Optional[str], Field(None, alias='INGREDIENTS', title='Ingredients')
+    ]
+    examples: Annotated[Optional[str], Field(None, alias='EXAMPLES', title='Examples')]
 
 
 class Hop(BaseModel):
@@ -235,27 +235,26 @@ class Hop(BaseModel):
     amount: Annotated[float, Field(alias='AMOUNT', gt=0.0, title='Amount')]
     use: Annotated[HopUse, Field(alias='USE')]
     time: Annotated[int, Field(alias='TIME', title='Time')]
-    notes: Annotated[Optional[str], Field(alias='NOTES', title='Notes')] = None
-    type: Annotated[Optional[HopType], Field(alias='TYPE')] = None
-    form: Annotated[Optional[HopForm], Field(alias='FORM')] = None
-    beta: Annotated[Optional[Beta], Field(alias='BETA', title='Beta')] = None
-    hsi: Annotated[Optional[Hsi], Field(alias='HSI', title='Hsi')] = None
-    origin: Annotated[Optional[str], Field(alias='ORIGIN', title='Origin')] = None
+    notes: Annotated[Optional[str], Field(None, alias='NOTES', title='Notes')]
+    type: Annotated[Optional[HopType], Field(None, alias='TYPE')]
+    form: Annotated[Optional[HopForm], Field(None, alias='FORM')]
+    beta: Annotated[Optional[Beta], Field(None, alias='BETA', title='Beta')]
+    hsi: Annotated[Optional[Hsi], Field(None, alias='HSI', title='Hsi')]
+    origin: Annotated[Optional[str], Field(None, alias='ORIGIN', title='Origin')]
     substitutes: Annotated[
-        Optional[str], Field(alias='SUBSTITUTES', title='Substitutes')
-    ] = None
+        Optional[str], Field(None, alias='SUBSTITUTES', title='Substitutes')
+    ]
     humulene: Annotated[
-        Optional[Humulene], Field(alias='HUMULENE', title='Humulene')
-    ] = None
+        Optional[Humulene], Field(None, alias='HUMULENE', title='Humulene')
+    ]
     caryophyllene: Annotated[
-        Optional[Caryophyllene], Field(alias='CARYOPHYLLENE', title='Caryophyllene')
-    ] = None
+        Optional[Caryophyllene],
+        Field(None, alias='CARYOPHYLLENE', title='Caryophyllene'),
+    ]
     cohumulone: Annotated[
-        Optional[Cohumulone], Field(alias='COHUMULONE', title='Cohumulone')
-    ] = None
-    myrcene: Annotated[Optional[Myrcene], Field(alias='MYRCENE', title='Myrcene')] = (
-        None
-    )
+        Optional[Cohumulone], Field(None, alias='COHUMULONE', title='Cohumulone')
+    ]
+    myrcene: Annotated[Optional[Myrcene], Field(None, alias='MYRCENE', title='Myrcene')]
 
 
 class Fermentable(BaseModel):
@@ -266,33 +265,31 @@ class Fermentable(BaseModel):
     yield_: Annotated[float, Field(alias='YIELD', ge=1.0, le=100.0, title='Yield')]
     color: Annotated[float, Field(alias='COLOR', ge=0.0, title='Color')]
     add_after_boil: Annotated[
-        Optional[bool], Field(alias='ADD_AFTER_BOIL', title='Add After Boil')
-    ] = False
-    origin: Annotated[Optional[str], Field(alias='ORIGIN', title='Origin')] = None
-    supplier: Annotated[Optional[str], Field(alias='SUPPLIER', title='Supplier')] = None
-    notes: Annotated[Optional[str], Field(alias='NOTES', title='Notes')] = None
+        Optional[bool], Field(False, alias='ADD_AFTER_BOIL', title='Add After Boil')
+    ]
+    origin: Annotated[Optional[str], Field(None, alias='ORIGIN', title='Origin')]
+    supplier: Annotated[Optional[str], Field(None, alias='SUPPLIER', title='Supplier')]
+    notes: Annotated[Optional[str], Field(None, alias='NOTES', title='Notes')]
     coarse_fine_diff: Annotated[
         Optional[CoarseFineDiff],
-        Field(alias='COARSE_FINE_DIFF', title='Coarse Fine Diff'),
-    ] = None
+        Field(None, alias='COARSE_FINE_DIFF', title='Coarse Fine Diff'),
+    ]
     moisture: Annotated[
-        Optional[Moisture], Field(alias='MOISTURE', title='Moisture')
-    ] = None
+        Optional[Moisture], Field(None, alias='MOISTURE', title='Moisture')
+    ]
     diastatic_power: Annotated[
-        Optional[float], Field(alias='DIASTATIC_POWER', title='Diastatic Power')
-    ] = None
-    protein: Annotated[Optional[Protein], Field(alias='PROTEIN', title='Protein')] = (
-        None
-    )
+        Optional[float], Field(None, alias='DIASTATIC_POWER', title='Diastatic Power')
+    ]
+    protein: Annotated[Optional[Protein], Field(None, alias='PROTEIN', title='Protein')]
     max_in_batch: Annotated[
-        Optional[MaxInBatch], Field(alias='MAX_IN_BATCH', title='Max In Batch')
-    ] = None
+        Optional[MaxInBatch], Field(None, alias='MAX_IN_BATCH', title='Max In Batch')
+    ]
     recommend_mash: Annotated[
-        Optional[bool], Field(alias='RECOMMEND_MASH', title='Recommend Mash')
-    ] = None
+        Optional[bool], Field(None, alias='RECOMMEND_MASH', title='Recommend Mash')
+    ]
     ibu_gal_per_lb: Annotated[
-        Optional[float], Field(alias='IBU_GAL_PER_LB', title='Ibu Gal Per Lb')
-    ] = None
+        Optional[float], Field(None, alias='IBU_GAL_PER_LB', title='Ibu Gal Per Lb')
+    ]
 
 
 class Misc(BaseModel):
@@ -303,8 +300,8 @@ class Misc(BaseModel):
     time: Annotated[int, Field(alias='TIME', title='Time')]
     amount: Annotated[float, Field(alias='AMOUNT', title='Amount')]
     amount_is_weight: Annotated[
-        Optional[bool], Field(alias='AMOUNT_IS_WEIGHT', title='Amount Is Weight')
-    ] = False
+        Optional[bool], Field(False, alias='AMOUNT_IS_WEIGHT', title='Amount Is Weight')
+    ]
     use_for: Annotated[Optional[str], Field(alias='USE_FOR', title='Use For')]
     notes: Annotated[Optional[str], Field(alias='NOTES', title='Notes')]
 
@@ -315,37 +312,37 @@ class Yeast(BaseModel):
     type: Annotated[YeastType, Field(alias='TYPE')]
     amount: Annotated[float, Field(alias='AMOUNT', gt=0.0, title='Amount')]
     amount_is_weight: Annotated[
-        Optional[bool], Field(alias='AMOUNT_IS_WEIGHT', title='Amount Is Weight')
-    ] = False
+        Optional[bool], Field(False, alias='AMOUNT_IS_WEIGHT', title='Amount Is Weight')
+    ]
     laboratory: Annotated[
-        Optional[str], Field(alias='LABORATORY', title='Laboratory')
-    ] = None
+        Optional[str], Field(None, alias='LABORATORY', title='Laboratory')
+    ]
     product_id: Annotated[
-        Optional[str], Field(alias='PRODUCT_ID', title='Product Id')
-    ] = None
+        Optional[str], Field(None, alias='PRODUCT_ID', title='Product Id')
+    ]
     min_temperature: Annotated[
-        Optional[float], Field(alias='MIN_TEMPERATURE', title='Min Temperature')
-    ] = None
+        Optional[float], Field(None, alias='MIN_TEMPERATURE', title='Min Temperature')
+    ]
     max_temperature: Annotated[
-        Optional[float], Field(alias='MAX_TEMPERATURE', title='Max Temperature')
-    ] = None
+        Optional[float], Field(None, alias='MAX_TEMPERATURE', title='Max Temperature')
+    ]
     flocculation: Annotated[
-        Optional[YeastFlocculation], Field(alias='FLOCCULATION')
-    ] = None
+        Optional[YeastFlocculation], Field(None, alias='FLOCCULATION')
+    ]
     attenuation: Annotated[
-        Optional[Attenuation], Field(alias='ATTENUATION', title='Attenuation')
-    ] = None
-    notes: Annotated[Optional[str], Field(alias='NOTES', title='Notes')] = None
-    best_for: Annotated[Optional[str], Field(alias='BEST_FOR', title='Best For')] = None
+        Optional[Attenuation], Field(None, alias='ATTENUATION', title='Attenuation')
+    ]
+    notes: Annotated[Optional[str], Field(None, alias='NOTES', title='Notes')]
+    best_for: Annotated[Optional[str], Field(None, alias='BEST_FOR', title='Best For')]
     times_cultured: Annotated[
-        Optional[int], Field(alias='TIMES_CULTURED', title='Times Cultured')
-    ] = None
-    max_reuse: Annotated[Optional[int], Field(alias='MAX_REUSE', title='Max Reuse')] = (
-        None
-    )
+        Optional[int], Field(None, alias='TIMES_CULTURED', title='Times Cultured')
+    ]
+    max_reuse: Annotated[
+        Optional[int], Field(None, alias='MAX_REUSE', title='Max Reuse')
+    ]
     add_to_secondary: Annotated[
-        Optional[bool], Field(alias='ADD_TO_SECONDARY', title='Add To Secondary')
-    ] = False
+        Optional[bool], Field(False, alias='ADD_TO_SECONDARY', title='Add To Secondary')
+    ]
 
 
 class Waters(BaseModel):
@@ -357,13 +354,13 @@ class MashStep(BaseModel):
     version: Annotated[int, Field(alias='VERSION', ge=1, le=1, title='Version')]
     type: Annotated[MashStepType, Field(alias='TYPE')]
     infuse_amount: Annotated[
-        Optional[float], Field(alias='INFUSE_AMOUNT', title='Infuse Amount')
-    ] = None
+        Optional[float], Field(None, alias='INFUSE_AMOUNT', title='Infuse Amount')
+    ]
     step_temp: Annotated[float, Field(alias='STEP_TEMP', title='Step Temp')]
     step_time: Annotated[Optional[float], Field(alias='STEP_TIME', title='Step Time')]
-    ramp_time: Annotated[Optional[int], Field(alias='RAMP_TIME', title='Ramp Time')] = (
-        None
-    )
+    ramp_time: Annotated[
+        Optional[int], Field(None, alias='RAMP_TIME', title='Ramp Time')
+    ]
 
 
 class Hops(BaseModel):
@@ -395,23 +392,24 @@ class Mash(BaseModel):
     version: Annotated[int, Field(alias='VERSION', ge=1, le=1, title='Version')]
     grain_temp: Annotated[float, Field(alias='GRAIN_TEMP', title='Grain Temp')]
     mash_steps: Annotated[MashSteps, Field(alias='MASH_STEPS')]
-    notes: Annotated[Optional[str], Field(alias='NOTES', title='Notes')] = None
-    tun_temp: Annotated[Optional[float], Field(alias='TUN_TEMP', title='Tun Temp')] = (
-        None
-    )
+    notes: Annotated[Optional[str], Field(None, alias='NOTES', title='Notes')]
+    tun_temp: Annotated[
+        Optional[float], Field(None, alias='TUN_TEMP', title='Tun Temp')
+    ]
     sparge_temp: Annotated[
-        Optional[float], Field(alias='SPARGE_TEMP', title='Sparge Temp')
-    ] = None
-    ph: Annotated[Optional[float], Field(alias='PH', title='Ph')] = None
+        Optional[float], Field(None, alias='SPARGE_TEMP', title='Sparge Temp')
+    ]
+    ph: Annotated[Optional[float], Field(None, alias='PH', title='Ph')]
     tun_weight: Annotated[
-        Optional[float], Field(alias='TUN_WEIGHT', title='Tun Weight')
-    ] = None
+        Optional[float], Field(None, alias='TUN_WEIGHT', title='Tun Weight')
+    ]
     tun_specific_heat: Annotated[
-        Optional[float], Field(alias='TUN_SPECIFIC_HEAT', title='Tun Specific Heat')
-    ] = None
+        Optional[float],
+        Field(None, alias='TUN_SPECIFIC_HEAT', title='Tun Specific Heat'),
+    ]
     equip_adjust: Annotated[
-        Optional[bool], Field(alias='EQUIP_ADJUST', title='Equip Adjust')
-    ] = False
+        Optional[bool], Field(False, alias='EQUIP_ADJUST', title='Equip Adjust')
+    ]
 
 
 class Recipe(BaseModel):
@@ -419,73 +417,78 @@ class Recipe(BaseModel):
     version: Annotated[int, Field(alias='VERSION', ge=1, le=1, title='Version')]
     type: Annotated[RecipeType, Field(alias='TYPE')]
     style: Annotated[Style, Field(alias='STYLE')]
-    equipment: Annotated[Optional[Equipment], Field(alias='EQUIPMENT')] = None
+    equipment: Annotated[Optional[Equipment], Field(None, alias='EQUIPMENT')]
     brewer: Annotated[str, Field(alias='BREWER', title='Brewer')]
     asst_brewer: Annotated[
-        Optional[str], Field(alias='ASST_BREWER', title='Asst Brewer')
-    ] = None
+        Optional[str], Field(None, alias='ASST_BREWER', title='Asst Brewer')
+    ]
     batch_size: Annotated[float, Field(alias='BATCH_SIZE', ge=0.0, title='Batch Size')]
     boil_size: Annotated[float, Field(alias='BOIL_SIZE', ge=0.0, title='Boil Size')]
     boil_time: Annotated[int, Field(alias='BOIL_TIME', ge=0, title='Boil Time')]
     efficiency: Annotated[
         float, Field(alias='EFFICIENCY', ge=0.0, le=100.0, title='Efficiency')
     ]
-    hops: Annotated[Optional[Hops], Field(alias='HOPS')] = None
+    hops: Annotated[Optional[Hops], Field(None, alias='HOPS')]
     fermentables: Annotated[
-        Optional[Fermentables], Field(alias='FERMENTABLES', title='Fermentables')
-    ] = None
-    miscs: Annotated[Optional[Miscs], Field(alias='MISCS', title='Miscs')] = None
-    yeasts: Annotated[Optional[Yeasts], Field(alias='YEASTS', title='Yeasts')] = None
-    waters: Annotated[Optional[Waters], Field(alias='WATERS', title='Waters')] = None
+        Optional[Fermentables], Field(None, alias='FERMENTABLES', title='Fermentables')
+    ]
+    miscs: Annotated[Optional[Miscs], Field(None, alias='MISCS', title='Miscs')]
+    yeasts: Annotated[Optional[Yeasts], Field(None, alias='YEASTS', title='Yeasts')]
+    waters: Annotated[Optional[Waters], Field(None, alias='WATERS', title='Waters')]
     mash: Annotated[Mash, Field(alias='MASH')]
-    notes: Annotated[Optional[str], Field(alias='NOTES', title='Notes')] = None
+    notes: Annotated[Optional[str], Field(None, alias='NOTES', title='Notes')]
     taste_notes: Annotated[
-        Optional[str], Field(alias='TASTE_NOTES', title='Taste Notes')
-    ] = None
+        Optional[str], Field(None, alias='TASTE_NOTES', title='Taste Notes')
+    ]
     taste_rating: Annotated[
-        Optional[str], Field(alias='TASTE_RATING', title='Taste Rating')
-    ] = None
-    og: Annotated[Optional[float], Field(alias='OG', title='Og')] = None
-    fg: Annotated[Optional[float], Field(alias='FG', title='Fg')] = None
+        Optional[str], Field(None, alias='TASTE_RATING', title='Taste Rating')
+    ]
+    og: Annotated[Optional[float], Field(None, alias='OG', title='Og')]
+    fg: Annotated[Optional[float], Field(None, alias='FG', title='Fg')]
     fermentation_stages: Annotated[
-        Optional[int], Field(alias='FERMENTATION_STAGES', title='Fermentation Stages')
-    ] = None
+        Optional[int],
+        Field(None, alias='FERMENTATION_STAGES', title='Fermentation Stages'),
+    ]
     primary_age: Annotated[
-        Optional[int], Field(alias='PRIMARY_AGE', title='Primary Age')
-    ] = None
+        Optional[int], Field(None, alias='PRIMARY_AGE', title='Primary Age')
+    ]
     primary_temp: Annotated[
-        Optional[int], Field(alias='PRIMARY_TEMP', title='Primary Temp')
-    ] = None
+        Optional[int], Field(None, alias='PRIMARY_TEMP', title='Primary Temp')
+    ]
     secondary_age: Annotated[
-        Optional[int], Field(alias='SECONDARY_AGE', title='Secondary Age')
-    ] = None
+        Optional[int], Field(None, alias='SECONDARY_AGE', title='Secondary Age')
+    ]
     secondary_temp: Annotated[
-        Optional[int], Field(alias='SECONDARY_TEMP', title='Secondary Temp')
-    ] = None
+        Optional[int], Field(None, alias='SECONDARY_TEMP', title='Secondary Temp')
+    ]
     tertiary_age: Annotated[
-        Optional[int], Field(alias='TERTIARY_AGE', title='Tertiary Age')
-    ] = None
+        Optional[int], Field(None, alias='TERTIARY_AGE', title='Tertiary Age')
+    ]
     tertiary_temp: Annotated[
-        Optional[int], Field(alias='TERTIARY_TEMP', title='Tertiary Temp')
-    ] = None
-    age: Annotated[Optional[int], Field(alias='AGE', title='Age')] = None
-    age_temp: Annotated[Optional[int], Field(alias='AGE_TEMP', title='Age Temp')] = None
-    date: Annotated[Optional[str], Field(alias='DATE', title='Date')] = None
+        Optional[int], Field(None, alias='TERTIARY_TEMP', title='Tertiary Temp')
+    ]
+    age: Annotated[Optional[int], Field(None, alias='AGE', title='Age')]
+    age_temp: Annotated[Optional[int], Field(None, alias='AGE_TEMP', title='Age Temp')]
+    date: Annotated[Optional[str], Field(None, alias='DATE', title='Date')]
     carbonation: Annotated[
-        Optional[float], Field(alias='CARBONATION', title='Carbonation')
-    ] = None
+        Optional[float], Field(None, alias='CARBONATION', title='Carbonation')
+    ]
     forced_carbonation: Annotated[
-        Optional[bool], Field(alias='FORCED_CARBONATION', title='Forced Carbonation')
-    ] = None
+        Optional[bool],
+        Field(None, alias='FORCED_CARBONATION', title='Forced Carbonation'),
+    ]
     priming_sugar_name: Annotated[
-        Optional[str], Field(alias='PRIMING_SUGAR_NAME', title='Priming Sugar Name')
-    ] = None
+        Optional[str],
+        Field(None, alias='PRIMING_SUGAR_NAME', title='Priming Sugar Name'),
+    ]
     carbonation_temp: Annotated[
-        Optional[float], Field(alias='CARBONATION_TEMP', title='Carbonation Temp')
-    ] = None
+        Optional[float], Field(None, alias='CARBONATION_TEMP', title='Carbonation Temp')
+    ]
     priming_sugar_equiv: Annotated[
-        Optional[float], Field(alias='PRIMING_SUGAR_EQUIV', title='Priming Sugar Equiv')
-    ] = None
+        Optional[float],
+        Field(None, alias='PRIMING_SUGAR_EQUIV', title='Priming Sugar Equiv'),
+    ]
     keg_priming_factor: Annotated[
-        Optional[float], Field(alias='KEG_PRIMING_FACTOR', title='Keg Priming Factor')
-    ] = None
+        Optional[float],
+        Field(None, alias='KEG_PRIMING_FACTOR', title='Keg Priming Factor'),
+    ]
