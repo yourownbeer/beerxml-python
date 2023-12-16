@@ -34,7 +34,7 @@ jobs:
           poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
           poetry publish --build --dry-run
   deploy-package:
-    needs: test-deploy-package
+    needs: lint
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
