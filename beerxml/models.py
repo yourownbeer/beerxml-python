@@ -302,8 +302,8 @@ class Misc(BaseModel):
     amount_is_weight: Annotated[
         Optional[bool], Field(False, alias='AMOUNT_IS_WEIGHT', title='Amount Is Weight')
     ]
-    use_for: Annotated[Optional[str], Field(alias='USE_FOR', title='Use For')]
-    notes: Annotated[Optional[str], Field(alias='NOTES', title='Notes')]
+    use_for: Annotated[Optional[str], Field(None, alias='USE_FOR', title='Use For')]
+    notes: Annotated[Optional[str], Field(None, alias='NOTES', title='Notes')]
 
 
 class Yeast(BaseModel):
