@@ -483,27 +483,74 @@ class Recipe(BaseModel):
 
     @field_validator("hops", mode="before")
     def pick_hops(cls, hops):
-        hops = hops["HOP"]
-        if isinstance(hops, dict):
-            return [hops]
-        return hops
+        try:
+            if hops is None:
+                return []
+            hops = hops["HOP"]
+            if isinstance(hops, dict):
+                return [hops]
+            return hops
+        except Exception as err:
+            error: pydantic_core.InitErrorDetails = {
+                "type": pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
+                "loc": ("__root__",),
+                "input": hops,
+            }
+            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error]) from err
 
     @field_validator("fermentables", mode="before")
     def pick_fermentables(cls, fermentables):
-        fermentables = fermentables["FERMENTABLE"]
-        if isinstance(fermentables, dict):
-            return [fermentables]
-        return fermentables
+        try:
+            if fermentables is None:
+                return []
+            fermentables = fermentables["FERMENTABLE"]
+            if isinstance(fermentables, dict):
+                return [fermentables]
+            return fermentables
+        except Exception as err:
+            error: pydantic_core.InitErrorDetails = {
+                "type": pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
+                "loc": ("__root__",),
+                "input": fermentables,
+            }
+            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error]) from err
 
     @field_validator("yeasts", mode="before")
     def pick_yeasts(cls, yeasts):
-        yeasts = yeasts["YEAST"]
-        if isinstance(yeasts, dict):
-            return [yeasts]
-        return yeasts
+        try:
+            if yeasts is None:
+                return []
+            yeasts = yeasts["YEAST"]
+            if isinstance(yeasts, dict):
+                return [yeasts]
+            return yeasts
+        except Exception as err:
+            error: pydantic_core.InitErrorDetails = {
+                "type": pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
+                "loc": ("__root__",),
+                "input": yeasts,
+            }
+            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error]) from err
+
+    @field_validator("miscs", mode="before")
+    def pick_miscs(cls, miscs):
+        try:
+            if miscs is None:
+                return []
+            miscs = miscs["MISC"]
+            if isinstance(miscs, dict):
+                return [miscs]
+            return miscs
+        except Exception as err:
+            error: pydantic_core.InitErrorDetails = {
+                "type": pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
+                "loc": ("__root__",),
+                "input": miscs,
+            }
+            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error]) from err
 
     @field_validator("waters", mode="before")
-    def pick_miscs(cls, waters):
+    def pick_waters(cls, waters):
         try:
             if waters is None:
                 return waters
@@ -513,8 +560,8 @@ class Recipe(BaseModel):
             return waters
         except Exception as err:
             error: pydantic_core.InitErrorDetails = {
-                'type': pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
-                'loc': ('__root__',),
-                'input': waters,
+                "type": pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
+                "loc": ("__root__",),
+                "input": waters,
             }
-            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error])
+            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error]) from err
