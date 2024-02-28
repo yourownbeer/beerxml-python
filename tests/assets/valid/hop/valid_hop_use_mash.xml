@@ -25,16 +25,27 @@
         <BOIL_SIZE>24</BOIL_SIZE>
         <BOIL_TIME>90</BOIL_TIME>
         <EFFICIENCY>70</EFFICIENCY>
+
         <HOPS>
-            <HOP>
-                <NAME>Cascade</NAME>
-                <VERSION>1</VERSION>
-                <ALPHA>5.0</ALPHA>
-                <AMOUNT>0.100</AMOUNT>
-                <USE>Boil</USE>
-                <TIME>60</TIME>
-            </HOP>
-        </HOPS>
+
+	<HOP>
+
+ 	<NAME>Cascade</NAME>
+
+ 	<VERSION>1</VERSION>
+
+ 	<ALPHA>5.0</ALPHA>
+
+ 	<AMOUNT>0.100</AMOUNT>
+
+	<USE>Mash</USE>
+
+	<TIME>60</TIME>
+
+	</HOP>
+
+	</HOPS>
+
         <FERMENTABLES></FERMENTABLES>
         <MISCS></MISCS>
         <YEASTS></YEASTS>
