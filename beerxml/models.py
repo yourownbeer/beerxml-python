@@ -3,7 +3,8 @@ from __future__ import annotations
 from enum import Enum
 from typing import List, Optional
 
-from pydantic import BaseModel, Field, RootModel
+import pydantic_core
+from pydantic import BaseModel, Field, RootModel, field_validator
 from typing_extensions import Annotated
 
 
@@ -345,10 +346,6 @@ class Yeast(BaseModel):
     ]
 
 
-class Waters(BaseModel):
-    water: Annotated[Optional[List[Water]], Field(alias='WATER', title='Water')]
-
-
 class MashStep(BaseModel):
     name: Annotated[str, Field(alias='NAME', title='Name')]
     version: Annotated[int, Field(alias='VERSION', ge=1, le=1, title='Version')]
@@ -361,37 +358,16 @@ class MashStep(BaseModel):
     ramp_time: Annotated[
         Optional[int], Field(None, alias='RAMP_TIME', title='Ramp Time')
     ]
-
-
-class Hops(BaseModel):
-    hop: Annotated[Optional[List[Hop]], Field(alias='HOP', title='Hop')]
-
-
-class Fermentables(BaseModel):
-    fermentable: Annotated[
-        Optional[List[Fermentable]], Field(alias='FERMENTABLE', title='Fermentable')
-    ]
-
-
-class Miscs(BaseModel):
-    misc: Annotated[Optional[List[Misc]], Field(alias='MISC', title='Misc')]
-
-
-class Yeasts(BaseModel):
-    yeast: Annotated[Optional[List[Yeast]], Field(alias='YEAST', title='Yeast')]
-
-
-class MashSteps(BaseModel):
-    mash_step: Annotated[
-        Optional[List[MashStep]], Field(alias='MASH_STEP', title='MashStep')
-    ]
+    end_temp: Annotated[Optional[int], Field(None, alias='END_TEMP', title='Ramp Time')]
 
 
 class Mash(BaseModel):
     name: Annotated[str, Field(alias='NAME', title='Name')]
     version: Annotated[int, Field(alias='VERSION', ge=1, le=1, title='Version')]
     grain_temp: Annotated[float, Field(alias='GRAIN_TEMP', title='Grain Temp')]
-    mash_steps: Annotated[MashSteps, Field(alias='MASH_STEPS')]
+    mash_steps: Annotated[
+        Optional[List[MashStep]], Field(alias='MASH_STEPS', title='MashSteps')
+    ]
     notes: Annotated[Optional[str], Field(None, alias='NOTES', title='Notes')]
     tun_temp: Annotated[
         Optional[float], Field(None, alias='TUN_TEMP', title='Tun Temp')
@@ -411,6 +387,13 @@ class Mash(BaseModel):
         Optional[bool], Field(False, alias='EQUIP_ADJUST', title='Equip Adjust')
     ]
 
+    @field_validator("mash_steps", mode="before")
+    def pick_mash_steps(cls, mash_steps):
+        mash_steps = mash_steps["MASH_STEP"]
+        if isinstance(mash_steps, dict):
+            return [mash_steps]
+        return mash_steps
+
 
 class Recipe(BaseModel):
     name: Annotated[str, Field(alias='NAME', title='Name')]
@@ -428,13 +411,18 @@ class Recipe(BaseModel):
     efficiency: Annotated[
         float, Field(alias='EFFICIENCY', ge=0.0, le=100.0, title='Efficiency')
     ]
-    hops: Annotated[Optional[Hops], Field(None, alias='HOPS')]
+    hops: Annotated[Optional[List[Hop]], Field(None, alias='HOPS')]
     fermentables: Annotated[
-        Optional[Fermentables], Field(None, alias='FERMENTABLES', title='Fermentables')
+        Optional[List[Fermentable]],
+        Field(None, alias='FERMENTABLES', title='Fermentables'),
     ]
-    miscs: Annotated[Optional[Miscs], Field(None, alias='MISCS', title='Miscs')]
-    yeasts: Annotated[Optional[Yeasts], Field(None, alias='YEASTS', title='Yeasts')]
-    waters: Annotated[Optional[Waters], Field(None, alias='WATERS', title='Waters')]
+    miscs: Annotated[Optional[List[Misc]], Field(None, alias='MISCS', title='Miscs')]
+    yeasts: Annotated[
+        Optional[List[Yeast]], Field(None, alias='YEASTS', title='Yeasts')
+    ]
+    waters: Annotated[
+        Optional[List[Water]], Field(None, alias='WATERS', title='Waters')
+    ]
     mash: Annotated[Mash, Field(alias='MASH')]
     notes: Annotated[Optional[str], Field(None, alias='NOTES', title='Notes')]
     taste_notes: Annotated[
@@ -492,3 +480,88 @@ class Recipe(BaseModel):
         Optional[float],
         Field(None, alias='KEG_PRIMING_FACTOR', title='Keg Priming Factor'),
     ]
+
+    @field_validator("hops", mode="before")
+    def pick_hops(cls, hops):
+        try:
+            if hops is None:
+                return []
+            hops = hops["HOP"]
+            if isinstance(hops, dict):
+                return [hops]
+            return hops
+        except Exception as err:
+            error: pydantic_core.InitErrorDetails = {
+                "type": pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
+                "loc": ("__root__",),
+                "input": hops,
+            }
+            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error]) from err
+
+    @field_validator("fermentables", mode="before")
+    def pick_fermentables(cls, fermentables):
+        try:
+            if fermentables is None:
+                return []
+            fermentables = fermentables["FERMENTABLE"]
+            if isinstance(fermentables, dict):
+                return [fermentables]
+            return fermentables
+        except Exception as err:
+            error: pydantic_core.InitErrorDetails = {
+                "type": pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
+                "loc": ("__root__",),
+                "input": fermentables,
+            }
+            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error]) from err
+
+    @field_validator("yeasts", mode="before")
+    def pick_yeasts(cls, yeasts):
+        try:
+            if yeasts is None:
+                return []
+            yeasts = yeasts["YEAST"]
+            if isinstance(yeasts, dict):
+                return [yeasts]
+            return yeasts
+        except Exception as err:
+            error: pydantic_core.InitErrorDetails = {
+                "type": pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
+                "loc": ("__root__",),
+                "input": yeasts,
+            }
+            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error]) from err
+
+    @field_validator("miscs", mode="before")
+    def pick_miscs(cls, miscs):
+        try:
+            if miscs is None:
+                return []
+            miscs = miscs["MISC"]
+            if isinstance(miscs, dict):
+                return [miscs]
+            return miscs
+        except Exception as err:
+            error: pydantic_core.InitErrorDetails = {
+                "type": pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
+                "loc": ("__root__",),
+                "input": miscs,
+            }
+            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error]) from err
+
+    @field_validator("waters", mode="before")
+    def pick_waters(cls, waters):
+        try:
+            if waters is None:
+                return waters
+            waters = waters["WATER"]
+            if isinstance(waters, dict):
+                return [waters]
+            return waters
+        except Exception as err:
+            error: pydantic_core.InitErrorDetails = {
+                "type": pydantic_core.PydanticCustomError("value_error", str(err)),  # type: ignore
+                "loc": ("__root__",),
+                "input": waters,
+            }
+            raise pydantic_core.ValidationError.from_exception_data(cls.__name__, [error]) from err
