@@ -1,0 +1,88 @@
+<RECIPES>
+    <RECIPE>
+        <VERSION>1</VERSION>
+        <NAME>Musterrezept</NAME>
+        <TYPE>All Grain</TYPE>
+        <STYLE>
+            <VERSION>1</VERSION>
+            <NAME>Ale</NAME>
+            <CATEGORY>English Ales</CATEGORY>
+            <CATEGORY_NUMBER>1</CATEGORY_NUMBER>
+            <STYLE_LETTER>A</STYLE_LETTER>
+            <STYLE_GUIDE>BJCP</STYLE_GUIDE>
+            <TYPE>Ale</TYPE>
+            <OG_MIN>1</OG_MIN>
+            <OG_MAX>1</OG_MAX>
+            <FG_MIN>1</FG_MIN>
+            <FG_MAX>1</FG_MAX>
+            <IBU_MIN>1</IBU_MIN>
+            <IBU_MAX>1</IBU_MAX>
+            <COLOR_MIN>0.5</COLOR_MIN>
+            <COLOR_MAX>0.5</COLOR_MAX>
+        </STYLE>
+        <BREWER>Brewer</BREWER>
+        <BATCH_SIZE>20</BATCH_SIZE>
+        <BOIL_SIZE>24</BOIL_SIZE>
+        <BOIL_TIME>90</BOIL_TIME>
+        <EFFICIENCY>70</EFFICIENCY>
+        <HOPS></HOPS>
+        <FERMENTABLES></FERMENTABLES>
+        <MISCS></MISCS>
+
+
+        <YEASTS>
+            <YEAST>
+
+                <NAME>German Ale</NAME>
+
+                <TYPE>Ale</TYPE>
+
+                <VERSION>1</VERSION>
+
+                <FORM>Liquid</FORM>
+
+                <AMOUNT>0.250</AMOUNT>
+
+                <LABORATORY>Wyeast Labs</LABORATORY>
+
+                <PRODUCT_ID>1007</PRODUCT_ID>
+
+                <MIN_TEMPERATURE>12.8</MIN_TEMPERATURE>
+
+                <MAX_TEMPERATURE>20.0</MAX_TEMPERATURE>
+
+                <ATTENUATION>75,0</ATTENUATION>
+
+                <NOTES>Crisp dry flavor with a hint of mild flavor.
+
+                    Great for many continental ales.
+
+                </NOTES>
+
+                <BEST_FOR>German Ales, Alts, Kolsch, Dry Stouts</BEST_FOR>
+
+                <FLOCCULATION>Low</FLOCCULATION>
+            </YEAST>
+        </YEASTS>
+
+
+        <WATERS></WATERS>
+        <MASH>
+            <VERSION>1</VERSION>
+            <NAME>Mash</NAME>
+            <GRAIN_TEMP>20</GRAIN_TEMP>
+            <TUN_TEMP></TUN_TEMP>
+            <MASH_STEPS>
+                <MASH_STEP>
+                    <NAME>Einmaischen</NAME>
+                    <VERSION>1</VERSION>
+                    <TYPE>Infusion</TYPE>
+                    <INFUSE_AMOUNT>0</INFUSE_AMOUNT>
+                    <STEP_TEMP>20</STEP_TEMP>
+                    <STEP_TIME>30</STEP_TIME>
+                </MASH_STEP>
+            </MASH_STEPS>
+        </MASH>
+    </RECIPE>
+</RECIPES>
+    
