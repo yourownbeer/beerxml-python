@@ -19,6 +19,20 @@ jobs:
         run: |
           poetry run ruff check ./beerxml
           poetry run bandit -r ./beerxml
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+      - name: Install requirements
+        run: |
+          pip install poetry==1.7.1
+          poetry install
+      - name: Run linting
+        run: |
+          poetry run pytest
   test-deploy-package:
     needs: lint
     runs-on: ubuntu-latest
