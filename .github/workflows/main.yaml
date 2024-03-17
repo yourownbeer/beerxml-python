@@ -34,7 +34,7 @@ jobs:
         run: |
           poetry run pytest
   test-deploy-package:
-    needs: lint
+    needs: [lint, test]
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/main'
     steps:
