@@ -143,17 +143,17 @@ class MiscType(Enum):
     SPICE = 'Spice'
     FINNING = 'Finning'
     WATER_AGENT = 'Water Agent'
-    HERB = 'herb'
-    FLAVOR = 'flavor'
-    OTHER = 'other'
+    HERB = 'Herb'
+    FLAVOR = 'Flavor'
+    OTHER = 'Other'
 
 
 class MiscUse(Enum):
-    BOIL = 'boil'
-    MASH = 'mash'
-    PRIMARY = 'primary'
-    SECONDARY = 'secondary'
-    BOTTLING = 'bottling'
+    BOIL = 'Boil'
+    MASH = 'Mash'
+    PRIMARY = 'Primary'
+    SECONDARY = 'Secondary'
+    BOTTLING = 'Bottling'
 
 
 class Attenuation(RootModel[float]):
