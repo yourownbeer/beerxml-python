@@ -3,6 +3,9 @@
         <VERSION>1</VERSION>
         <NAME>Musterrezept</NAME>
         <TYPE>All Grain</TYPE>
+
+
+
         <STYLE>
             <VERSION>1</VERSION>
             <NAME>Ale</NAME>
@@ -12,7 +15,7 @@
             <STYLE_GUIDE>BJCP</STYLE_GUIDE>
             <TYPE>Ale</TYPE>
             <OG_MIN>1</OG_MIN>
-            <OG_MAX>1</OG_MAX>
+            <OG_MAX>Eins</OG_MAX>
             <FG_MIN>1</FG_MIN>
             <FG_MAX>1</FG_MAX>
             <IBU_MIN>1</IBU_MIN>
@@ -20,6 +23,9 @@
             <COLOR_MIN>0.5</COLOR_MIN>
             <COLOR_MAX>0.5</COLOR_MAX>
         </STYLE>
+
+
+
         <BREWER>Brewer</BREWER>
         <BATCH_SIZE>20</BATCH_SIZE>
         <BOIL_SIZE>24</BOIL_SIZE>
@@ -27,34 +33,7 @@
         <EFFICIENCY>70</EFFICIENCY>
         <HOPS></HOPS>
         <FERMENTABLES></FERMENTABLES>
-
-
-        <MISCS>
-
-	<MISC>
-	
- 	<NAME>Irish Moss</NAME>
-
- 	<VERSION>1</VERSION>
-
- 	<TYPE>Spice</TYPE>
-
- 	<USE>Bottling</USE>
-
- 	<TIME>15.0</TIME>
-
- 	<AMOUNT>0.01</AMOUNT>
-
-	<AMOUNT_IS_WEIGHT>0.01</AMOUNT_IS_WEIGHT>
-	
-	<USE_FOR>Belgian Wit Spice</USE_FOR>
-
-	</MISC>
-
-	</MISCS>
-
-
-
+        <MISCS></MISCS>
         <YEASTS></YEASTS>
         <WATERS></WATERS>
         <MASH>

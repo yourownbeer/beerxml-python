@@ -1,3 +1,4 @@
+
 <RECIPES>
     <RECIPE>
         <VERSION>1</VERSION>
@@ -19,6 +20,11 @@
             <IBU_MAX>1</IBU_MAX>
             <COLOR_MIN>0.5</COLOR_MIN>
             <COLOR_MAX>0.5</COLOR_MAX>
+	    <ABV_MIN>4.5</ABV_MIN>
+ 	    <ABV_MAX>eins</ABV_MAX>
+	    <CARB_MIN>1.6</CARB_MIN>
+	    <CARB_MAX>2.1</CARB_MAX>
+	    <EXAMPLES>Guinness</EXAMPLES>
         </STYLE>
         <BREWER>Brewer</BREWER>
         <BATCH_SIZE>20</BATCH_SIZE>
@@ -27,30 +33,7 @@
         <EFFICIENCY>70</EFFICIENCY>
         <HOPS></HOPS>
         <FERMENTABLES></FERMENTABLES>
-
-
-        <MISCS>
-
-	<MISC>
-	
- 	<NAME>Irish Moss</NAME>
-
- 	<VERSION>1</VERSION>
-
- 	<TYPE>Spice</TYPE>
-
- 	<USE>Mash</USE>
-
- 	<TIME>15.0</TIME>
-
- 	<AMOUNT>0.010</AMOUNT>
-
-	</MISC>
-
-	</MISCS>
-
-
-
+        <MISCS></MISCS>
         <YEASTS></YEASTS>
         <WATERS></WATERS>
         <MASH>
