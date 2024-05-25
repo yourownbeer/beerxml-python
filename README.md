@@ -17,8 +17,7 @@ pip install beerxml
 The models in this beerxml package have been generated from [this beerxml json schema](https://github.com/yourownbeer/beerxml-json-schema) with this command:
 
 ```
- datamodel-codegen  --input .\schemas\Recipe.json --input-file-type jsonschema --output output.py --snake-case-field --capitalise-enum-members --use-annotated  --use-non-positive-negative-numbe
-r-constrained-types --output-model-type pydantic_v2.BaseModel
+ datamodel-codegen  --input .\schemas\Recipe.json --input-file-type jsonschema --output output.py --snake-case-field --capitalise-enum-members --use-annotated  --use-non-positive-negative-number-constrained-types --output-model-type pydantic_v2.BaseModel
 ```
 
 ## Usage

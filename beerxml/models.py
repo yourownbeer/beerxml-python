@@ -9,7 +9,7 @@ from typing_extensions import Annotated
 
 
 class RecipeType(Enum):
-    EXTRACT = 'EXTRACT'
+    EXTRACT = 'Extract'
     PARTIAL_MASH = 'Partial Mash'
     ALL_GRAIN = 'All Grain'
 
@@ -143,17 +143,17 @@ class MiscType(Enum):
     SPICE = 'Spice'
     FINNING = 'Finning'
     WATER_AGENT = 'Water Agent'
-    HERB = 'herb'
-    FLAVOR = 'flavor'
-    OTHER = 'other'
+    HERB = 'Herb'
+    FLAVOR = 'Flavor'
+    OTHER = 'Other'
 
 
 class MiscUse(Enum):
-    BOIL = 'boil'
-    MASH = 'mash'
-    PRIMARY = 'primary'
-    SECONDARY = 'secondary'
-    BOTTLING = 'bottling'
+    BOIL = 'Boil'
+    MASH = 'Mash'
+    PRIMARY = 'Primary'
+    SECONDARY = 'Secondary'
+    BOTTLING = 'Bottling'
 
 
 class Attenuation(RootModel[float]):
@@ -429,7 +429,8 @@ class Recipe(BaseModel):
         Optional[str], Field(None, alias='TASTE_NOTES', title='Taste Notes')
     ]
     taste_rating: Annotated[
-        Optional[str], Field(None, alias='TASTE_RATING', title='Taste Rating')
+        Optional[int],
+        Field(None, alias='TASTE_RATING', ge=0, le=50, title='Taste Rating'),
     ]
     og: Annotated[Optional[float], Field(None, alias='OG', title='Og')]
     fg: Annotated[Optional[float], Field(None, alias='FG', title='Fg')]
