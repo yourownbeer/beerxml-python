@@ -5,7 +5,7 @@ description = "The beerxml python package is a powerful tool designed to streaml
 authors = ["YourOwnBeer <brew@yourownbeer.com>"]
 keywords = ["beerxml", "beer", "xml", "beerxml standard"]
 repository = "https://github.com/yourownbeer/beerxml-python"
-homepage = "https://yourownbeer.com"
+homepage = "https://www.yourownbeer.com"
 license = "MIT"
 readme = "README.md"
 
