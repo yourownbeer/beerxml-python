@@ -263,7 +263,7 @@ class Fermentable(BaseModel):
     version: Annotated[int, Field(alias='VERSION', ge=1, le=1, title='Version')]
     type: Annotated[FermentableType, Field(alias='TYPE')]
     amount: Annotated[float, Field(alias='AMOUNT', gt=0.0, title='Amount')]
-    yield_: Annotated[float, Field(alias='YIELD', ge=1.0, le=100.0, title='Yield')]
+    yield_: Annotated[float, Field(alias='YIELD', ge=0.0, le=100.0, title='Yield')]
     color: Annotated[float, Field(alias='COLOR', ge=0.0, title='Color')]
     add_after_boil: Annotated[
         Optional[bool], Field(False, alias='ADD_AFTER_BOIL', title='Add After Boil')
