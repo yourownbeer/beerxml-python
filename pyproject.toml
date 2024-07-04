@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "beerxml"
-version = "0.0.7"
+version = "0.0.8"
 description = "The beerxml python package is a powerful tool designed to streamline the process of working with BeerXML files, ensuring that specific beer recipes adhere to the BeerXML standard. BeerXML is a widely adopted XML-based standard for representing brewing recipes, allowing brewers to share and exchange their recipes seamlessly."
 authors = ["YourOwnBeer <brew@yourownbeer.com>"]
 keywords = ["beerxml", "beer", "xml", "beerxml standard"]
